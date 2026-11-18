@@ -16,3 +16,15 @@ export class ConflictError extends AppError {
         super(409, message)
     }
 }
+
+export class UnauthorizedError extends AppError {
+    constructor(message = 'Authentification requise') {
+        super(401, message)
+    }
+}
+
+export class ForbiddenError extends AppError {
+    constructor(message = 'Accès interdit') {
+        super(403, message)
+    }
+}

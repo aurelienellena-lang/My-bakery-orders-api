@@ -65,3 +65,11 @@ export const refresh = async (refreshToken: string) => {
 export const logout = async (userId: number) => {
     await userRepository.updateRefreshTokenHash(userId, null)
 }
+
+export const getMe = async (userId: number) => {
+    const user = await userRepository.findById(userId)
+    if (!user) {
+        throw new UnauthorizedError('Utilisateur introuvable')
+    }
+    return toUserResponse(user)
+}

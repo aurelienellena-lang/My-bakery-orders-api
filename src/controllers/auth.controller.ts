@@ -19,3 +19,13 @@ export const refresh = async (req: Request, res: Response) => {
     const result = await authService.refresh(refreshToken)
     res.json(result)
 }
+
+export const me = async (req: Request, res: Response) => {
+    const user = await authService.getMe(req.user!.userId)
+    res.json(user)
+}
+
+export const logout = async (req: Request, res: Response) => {
+    await authService.logout(req.user!.userId)
+    res.status(204).send()
+}

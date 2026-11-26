@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import ingredientRoutes from './routes/ingredient.routes'
+import productRoutes from './routes/product.routes'
 import { notFoundHandler, errorHandler } from './middlewares/error-handler'
 import authRoutes from './routes/auth.routes'
 
@@ -14,6 +15,7 @@ app.get('/health', (req, res) => {
 })
 
 app.use('/ingredients', ingredientRoutes)
+app.use('/products', productRoutes)
 app.use('/auth', authRoutes)
 
 // ⚠️ Toujours en DERNIER, dans cet ordre

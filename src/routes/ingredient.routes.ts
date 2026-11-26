@@ -18,3 +18,4 @@ router.patch('/:id', authorize(UserRole.ADMIN), ingredientController.update)
 router.delete('/:id', authorize(UserRole.ADMIN), ingredientController.remove)
 
 export default router
+
